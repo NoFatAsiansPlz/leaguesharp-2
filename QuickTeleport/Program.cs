@@ -33,11 +33,11 @@ namespace QuickTeleport
             _menu.AddItem(new MenuItem("Hotkey", "Hotkey").SetValue(new KeyBind(16, KeyBindType.Press)));
             _menu.AddItem(new MenuItem("Turret", "QT to Turrets Only").SetValue(true));
             _menu.AddToMainMenu();
-            Game.OnGameUpdate += Game_OnGameUpdate;
+            Game.OnUpdate += Game_OnUpdate;
             Game.PrintChat("QuickTeleport by Trees loaded.");
         }
 
-        private static void Game_OnGameUpdate(EventArgs args)
+        private static void Game_OnUpdate(EventArgs args)
         {
             if (!CanTeleport() || !_menu.Item("Hotkey").GetValue<KeyBind>().Active)
             {
